@@ -1,0 +1,1 @@
+.navbar{width:600px;height:50px;background-color:red;margin:0 auto}.navbar ul{list-style:none;display:flex;line-height:200px}@media screen and (max-width:1080px) and (min-width:768px),(orientation:landscape){.navbar{background-color:yellow}.navbar ul{line-height:600px}}
