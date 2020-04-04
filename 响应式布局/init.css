@@ -1,0 +1,3 @@
+@import url(navbar.css) only screen and (min-width:1200px);
+@import url(midum.css)  only screen and (min-width:968px);
+/* 错误写法上面只会应用midum.css 优先级就近原则 */
