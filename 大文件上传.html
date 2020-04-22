@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" multiple>
+  <span> </span>
+</body>
+<script>
+ // var postFile=()=>{}
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type='module'>
+  import ajax from './xhrAjax.js'
+  window.ajax = ajax
+</script>
+<script>
+  window.onload = () => {
+
+    input = document.querySelector('input')
+    span = document.querySelector('span')
+    var postFile = (e) => {
+      console.log('上传文件', input.files)
+
+      ajax
+        .post({
+          url: 'http://localhost:8085/postfile',
+          data: input.files,
+          type: 'file',
+          fileUpload: (add, data) => {
+            add('key', data)
+          },
+          header: {
+            'Content-Type': "application/json;charset=UTF-8"
+          }
+        })
+        .progress((e) => {
+          span.textContent = '上传中' + parseInt(e.loaded / e.total * 100) + '%'
+
+        })
+        .load((e) => {
+
+          span.textContent = '完成' + parseInt(e.loaded / e.total * 100) + '%'
+        }).then(res => {
+          console.log('ajax完毕', res)
+        })
+
+
+      }
+
+      input.onchange = postFile
+    }
+</script>
+
+</html>

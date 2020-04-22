@@ -2,11 +2,7 @@
 ## 根据 GET 查询
 GET data
 查询属性名为 data 的所有数据
-<<<<<<< HEAD
 GET data?name
-=======
-GET data?nam
->>>>>>> 14cf160... first commit
 查询属性为 data,键名为 name 的所有数据
 GET data?name='张三'
 查询属性 data name=张三的一条数据

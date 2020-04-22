@@ -1,5 +1,6 @@
-const init = require(__dirname + '/init');
+const init = require(__dirname + '/init/init');
 const mock = require('mockjs');
+global.$dirname = __dirname
 global.axios = require('axios');
 
 // 设置端口号
@@ -282,10 +283,10 @@ global.deepClone = (obj, newObj={}) => {
 
     
     //  });
-    return  require(__dirname + '/component.js');
+    return  require(__dirname + '/init/datamock.js');
    }
    global.mocktemplate=data
-   require(__dirname + '/component.js');
+    require(__dirname + '/init/datamock.js');
+
+  
   });
-
-
